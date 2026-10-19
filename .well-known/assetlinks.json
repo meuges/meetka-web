@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "eu.meetka",
+      "sha256_cert_fingerprints": [
+        "2F:08:EB:17:57:89:77:24:05:91:17:0E:43:EF:32:FA:17:52:B8:E7:06:11:75:F1:71:F1:72:31:25:45:82:1B"
+      ]
+    }
+  }
+]

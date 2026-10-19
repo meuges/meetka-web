@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Meetka – kafe, procházka nebo večeře s novými lidmi</title>
+  <meta name="description" content="Meetka: založ aktivitu nebo se přidej k aktivitě v okolí. Kafe, oběd, pivo, procházka, sport. Praha a Brno. Coffee, walks, sport and dinners with new people.">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/style.css">
+  <script>
+    window.MEETKA_TEXTS = {
+      cs: {
+        title: "Meetka – kafe, procházka nebo večeře s novými lidmi",
+        hero: "Ahoj! Půjdeme na kafe?",
+        lead: "Meetka je jednoduchá appka na setkání s novými lidmi u kafe, oběda, piva, na procházce nebo při sportu. Pro místní i pro ty, kdo se do Prahy a Brna právě přistěhovali.",
+        soon: "Android brzy na Google Play · iPhone jako webová appka",
+        howTitle: "Jak to funguje",
+        how1Title: "Založ aktivitu",
+        how1: "Kafe, oběd, procházka, badminton… Kde, kdy a kolik míst. Klidně „já + manželka a dvě místa navíc“, nebo jen pro jednoho.",
+        how2Title: "Najdi aktivitu v okolí",
+        how2: "Vidíš, kde a kdy se lidé scházejí a kolik jich je. Přidáš se jedním klepnutím.",
+        how3Title: "Sejděte se",
+        how3: "Hostitel vybere místo a postará se o rezervaci. Po setkání si místo uložíš do deníku.",
+        rulesTitle: "Na čem nám záleží",
+        rule1: "<strong>Není to seznamka.</strong> Žádné soukromé zprávy cizím lidem.",
+        rule2: "<strong>Soukromí:</strong> u anonymní aktivity se profily ukážou až 3 hodiny před setkáním. Hostitel může aktivitu také otevřít hned.",
+        rule3: "<strong>Bezpečnost:</strong> jen veřejná místa, ověřený účet, nahlášení a blokace jedním klepnutím.",
+        rule4: "<strong>Jazyky:</strong> aktivita může být česky, anglicky, německy… nebo jako jazykový tandem.",
+        diaryTitle: "A k tomu deník podniků",
+        diary: "Ulož si, kde ti chutnalo, a seřaď podniky porovnáním dvou najednou. Seznam „Chci zkusit“ pak nabízí místa pro další aktivitu.",
+        privacy: "Zásady ochrany soukromí",
+        contact: "Kontakt"
+      },
+      en: {
+        title: "Meetka – coffee, walks and dinners with new people",
+        hero: "Ahoy! Coffee?",
+        lead: "Meetka is a simple app for meeting new people over coffee, lunch, a beer, on a walk or at sport. For locals and for everyone who has just moved to Prague or Brno.",
+        soon: "Android soon on Google Play · iPhone as a web app",
+        howTitle: "How it works",
+        how1Title: "Create an activity",
+        how1: "Coffee, lunch, a walk, badminton… Where, when and how many. \"Me + my wife and two more\", or just for one.",
+        how2Title: "Find an activity nearby",
+        how2: "See where and when people meet and how many are going. Join with one tap.",
+        how3Title: "Meet",
+        how3: "The host picks the place and books it. Afterwards the place goes into your diary.",
+        rulesTitle: "What matters to us",
+        rule1: "<strong>Not a dating app.</strong> No private messages to strangers.",
+        rule2: "<strong>Privacy:</strong> at an anonymous activity, profiles appear 3 hours before meeting. A host can also make it open right away.",
+        rule3: "<strong>Safety:</strong> public places only, verified accounts, report and block in one tap.",
+        rule4: "<strong>Languages:</strong> an activity can be in Czech, English, German… or a language tandem.",
+        diaryTitle: "Plus a diary of places",
+        diary: "Keep the places you liked and rank them by comparing two at a time. Your \"Want to try\" list then suggests places for the next activity.",
+        privacy: "Privacy policy",
+        contact: "Contact"
+      }
+    };
+  </script>
+  <script src="/i18n.js"></script>
+</head>
+<body>
+<header>
+  <a class="logo" href="/"><img src="/favicon.svg" alt="">Meetka</a>
+  <div class="lang">
+    <button data-lang="cs" onclick="meetkaLang('cs')">CZ</button>
+    <button data-lang="en" onclick="meetkaLang('en')">EN</button>
+  </div>
+</header>
+
+<main>
+  <h1 data-i18n="hero">Ahoj! Půjdeme na kafe?</h1>
+  <p class="lead" data-i18n="lead">Meetka je jednoduchá appka na setkání s novými lidmi u kafe, oběda, piva, na procházce nebo při sportu.</p>
+  <p class="note" data-i18n="soon">Android brzy na Google Play · iPhone jako webová appka</p>
+
+  <h2 data-i18n="howTitle">Jak to funguje</h2>
+  <div class="cards">
+    <div class="card"><div class="emoji">☕</div><h3 data-i18n="how1Title">Založ aktivitu</h3><p data-i18n="how1"></p></div>
+    <div class="card"><div class="emoji">🗺️</div><h3 data-i18n="how2Title">Najdi aktivitu v okolí</h3><p data-i18n="how2"></p></div>
+    <div class="card"><div class="emoji">🍽️</div><h3 data-i18n="how3Title">Sejděte se</h3><p data-i18n="how3"></p></div>
+  </div>
+
+  <h2 data-i18n="rulesTitle">Na čem nám záleží</h2>
+  <ul class="points">
+    <li data-i18n="rule1"></li>
+    <li data-i18n="rule2"></li>
+    <li data-i18n="rule3"></li>
+    <li data-i18n="rule4"></li>
+  </ul>
+
+  <h2 data-i18n="diaryTitle">A k tomu deník podniků</h2>
+  <p data-i18n="diary"></p>
+</main>
+
+<footer>
+  © Meetka · <a href="/privacy.html" data-i18n="privacy">Zásady ochrany soukromí</a> · <a href="mailto:ahoj@meetka.eu" data-i18n="contact">Kontakt</a>
+</footer>
+</body>
+</html>

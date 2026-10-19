@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Zásady ochrany osobních údajů · Meetka</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header>
+  <a class="logo" href="/"><img src="/favicon.svg" alt="">Meetka</a>
+</header>
+
+<main>
+  <article>
+    <h1>Zásady ochrany osobních údajů</h1>
+    <!-- Source: docs/privacy-policy-draft.md. Fill in the controller and have it reviewed before the app goes public. -->
+    <p class="draft">Návrh platný pro testovací verzi aplikace. Před spuštěním doplníme správce a zásady nechá zkontrolovat právník.</p>
+
+    <h2>1. Správce</h2>
+    <p>[Jméno / firma, IČO, adresa] · <a href="mailto:ahoj@meetka.eu">ahoj@meetka.eu</a></p>
+
+    <h2>2. Co aplikace zpracovává a proč</h2>
+    <table>
+      <tr><th>Údaj</th><th>Kde je</th><th>Proč</th><th>Kdo ho vidí</th></tr>
+      <tr><td>Deník, seznamy, poznámky</td><td>jen v telefonu</td><td>osobní žebříček podniků</td><td>nikdo jiný</td></tr>
+      <tr><td>Profil: křestní jméno, datum narození, fotka, jazyky, zájmy, krátký popis, čtvrť</td><td>v telefonu, s účtem i na serveru v EU</td><td>účast na aktivitách</td><td>jméno, fotku, věkové rozpětí, jazyky, zájmy a popis vidí: u anonymní aktivity účastníci od 3 h před setkáním (předtím jen iniciálu, věkové rozpětí, úroveň a ✔ ověřenou fotku); u otevřené aktivity každý, kdo ji vidí; u aktivity se schvalováním hostitel, když žádáš o místo</td></tr>
+      <tr><td>Selfie s gestem pro ověření fotky (dobrovolné)</td><td>telefon, po odeslání server v EU; po rozhodnutí ho smažeme, nejpozději do 30 dní</td><td>ověření, že fotka v profilu patří tobě</td><td>jen moderátor (porovnává člověk, ne automatické rozpoznávání obličeje); ostatní vidí jen „✔ Ověřená fotka“</td></tr>
+      <tr><td>Datum narození</td><td>telefon, server</td><td>ověření 18+, věkové rozpětí</td><td>nikdo (ostatní vidí jen rozpětí, např. 30–34)</td></tr>
+      <tr><td>Domovská čtvrť</td><td>telefon, server</td><td>výchozí střed pro vzdálenosti</td><td>nikdo</td></tr>
+      <tr><td>„Jsem žena“</td><td>telefon, server</td><td>přístup k aktivitám „jen ženy“</td><td>nikdo</td></tr>
+      <tr><td>Aktivity, které zakládáš nebo ke kterým se přidáš; počet setkání (odznaky)</td><td>telefon, server</td><td>fungování aktivit, důvěryhodnost</td><td>ostatní vidí místo, čas a počet lidí; kdo přijde, podle volby hostitele (anonymní / otevřená); po setkání vidí účastníci v deníku křestní jména těch, kdo přišli</td></tr>
+      <tr><td>Nahlášení a blokace</td><td>telefon, server</td><td>bezpečnost, moderace (DSA)</td><td>jen moderátor; nahlášený se nedozví, kdo ho nahlásil; blokovaný se o blokaci nedozví</td></tr>
+    </table>
+    <p>Neukládáme příjmení, adresu, přesnou polohu, zdravotní údaje (alergie, intolerance) ani náboženské stravovací preference (halal, košer).</p>
+
+    <h2>3. Mapa a katalog podniků</h2>
+    <ul>
+      <li>Katalog podniků je součástí aplikace (data © přispěvatelé OpenStreetMap, licence ODbL).</li>
+      <li>Mapa stahuje mapové podklady ze služby OpenFreeMap. Jejímu serveru se při tom předá IP adresa zařízení a zobrazená oblast mapy, nic dalšího.</li>
+      <li>„Otevřít v mapách“ předá název a souřadnice podniku mapové aplikaci, kterou si zvolíš.</li>
+    </ul>
+
+    <h2>4. Oznámení</h2>
+    <p>Připomínky aktivit plánuje aplikace přímo v telefonu. Oznámení o změnách aktivity půjdou přes Firebase Cloud Messaging; předává se jen token zařízení.</p>
+
+    <h2>5. Zálohy</h2>
+    <p>Automatická cloudová záloha Androidu je vypnutá. Záloha deníku do souboru vzniká jen na tvůj pokyn a uloží se tam, kam vybereš.</p>
+
+    <h2>6. Doba uložení a smazání</h2>
+    <p>Data v telefonu smažeš odinstalováním aplikace nebo vymazáním jejích dat. Smazání účtu smaže profil, účasti a fotku ze serveru do 30 dní; anonymizované záznamy o nahlášení mohou zůstat, pokud to vyžaduje nařízení o digitálních službách (DSA).</p>
+
+    <h2>7. Server a zpracovatelé</h2>
+    <ul>
+      <li>Supabase (hosting v EU – Frankfurt): účet, profil, aktivity, skupinový chat.</li>
+      <li>Odesílání přihlašovacích e-mailů: [doplnit]; přihlášení přes Google podle tvé volby.</li>
+      <li>E-mail slouží jen k přihlášení a ochraně před zneužitím; nikomu se neukazuje.</li>
+    </ul>
+
+    <h2>8. Tvoje práva</h2>
+    <p>Přístup, oprava, výmaz, omezení zpracování, přenositelnost (export deníku do JSON), námitka a stížnost u Úřadu pro ochranu osobních údajů (<a href="https://uoou.gov.cz">uoou.gov.cz</a>).</p>
+
+    <h2>9. Věk</h2>
+    <p>Aplikace je jen pro osoby od 18 let.</p>
+  </article>
+</main>
+
+<footer>© Meetka · <a href="/">meetka.eu</a></footer>
+</body>
+</html>

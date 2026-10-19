@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Meetka</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/style.css">
+  <script>
+    // Serves https://meetka.eu/t/<id>: with the app installed, Android opens the app directly
+    // (App Links); otherwise this page offers to open it or to get it. Anything else is a 404.
+    window.MEETKA_TEXTS = {
+      cs: {
+        title: "Pozvánka na aktivitu · Meetka",
+        inviteTitle: "Pozvánka na aktivitu",
+        inviteLead: "Někdo tě zve na aktivitu na Meetce. Otevři ji v aplikaci: uvidíš, kde a kdy se sejdete a kolik vás bude.",
+        open: "Otevřít v aplikaci",
+        noApp: "Nemáš aplikaci? Android brzy na Google Play, iPhone jako webová appka – připravujeme.",
+        home: "Co je Meetka?",
+        notFoundTitle: "Tahle stránka tu není",
+        notFoundLead: "Odkaz je možná neúplný."
+      },
+      en: {
+        title: "Activity invitation · Meetka",
+        inviteTitle: "You are invited",
+        inviteLead: "Someone invites you to an activity on Meetka. Open it in the app to see where and when you meet and how many are going.",
+        open: "Open in the app",
+        noApp: "No app yet? Android soon on Google Play, iPhone as a web app – coming soon.",
+        home: "What is Meetka?",
+        notFoundTitle: "This page is not here",
+        notFoundLead: "The link may be incomplete."
+      }
+    };
+  </script>
+  <script src="/i18n.js"></script>
+</head>
+<body>
+<header>
+  <a class="logo" href="/"><img src="/favicon.svg" alt="">Meetka</a>
+  <div class="lang">
+    <button data-lang="cs" onclick="meetkaLang('cs')">CZ</button>
+    <button data-lang="en" onclick="meetkaLang('en')">EN</button>
+  </div>
+</header>
+
+<main>
+  <section id="invite" hidden>
+    <h1 data-i18n="inviteTitle">Pozvánka na aktivitu</h1>
+    <p class="lead" data-i18n="inviteLead"></p>
+    <p><a id="open" class="button" href="#" data-i18n="open">Otevřít v aplikaci</a></p>
+    <p class="note" data-i18n="noApp"></p>
+    <p><a class="button secondary" href="/" data-i18n="home">Co je Meetka?</a></p>
+  </section>
+  <section id="missing" hidden>
+    <h1 data-i18n="notFoundTitle">Tahle stránka tu není</h1>
+    <p class="lead" data-i18n="notFoundLead"></p>
+    <p><a class="button" href="/" data-i18n="home">Co je Meetka?</a></p>
+  </section>
+</main>
+
+<script>
+  (function () {
+    var match = location.pathname.match(/^\/t\/([A-Za-z0-9_-]+)\/?$/);
+    if (match) {
+      document.getElementById("open").href = "meetka://table/" + match[1] + location.search;
+      document.getElementById("invite").hidden = false;
+    } else {
+      document.getElementById("missing").hidden = false;
+    }
+  })();
+</script>
+</body>
+</html>

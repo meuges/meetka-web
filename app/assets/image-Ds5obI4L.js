@@ -1,0 +1,1 @@
+async function e(e,t=640,n=.85){let r=await createImageBitmap(e,{imageOrientation:`from-image`}),i=Math.min(1,t/Math.max(r.width,r.height)),a=document.createElement(`canvas`);return a.width=Math.round(r.width*i),a.height=Math.round(r.height*i),a.getContext(`2d`).drawImage(r,0,0,a.width,a.height),r.close(),a.toDataURL(`image/jpeg`,n)}export{e as t};

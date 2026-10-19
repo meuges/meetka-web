@@ -1,7 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <circle cx="32" cy="32" r="32" fill="#9a4521"/>
-  <circle cx="20" cy="34" r="6" fill="#fff8f6"/>
-  <circle cx="32" cy="26" r="6" fill="#fff8f6"/>
-  <circle cx="44" cy="34" r="6" fill="#fff8f6"/>
-  <rect x="14" y="42" width="36" height="6" rx="3" fill="#fff8f6"/>
+  <!-- A2: the same table, everyone a little different -->
+  <rect width="64" height="64" rx="15" fill="#9a4521"/>
+  <circle cx="32" cy="32" r="11.5" fill="#fff8f6"/>
+  <circle cx="32" cy="11" r="5.5" fill="#ffd166"/>
+  <circle cx="50.2" cy="42.5" r="5.5" fill="#8fd3b6"/>
+  <circle cx="32" cy="53" r="5.5" fill="#ffb59b"/>
+  <circle cx="13.8" cy="42.5" r="5.5" fill="#a9c7ff"/>
+  <circle cx="13.8" cy="21.5" r="5.5" fill="#f4a6c6"/>
+  <circle cx="50.2" cy="21.5" r="4.4" fill="none" stroke="#fff8f6" stroke-width="2.2"/>
 </svg>

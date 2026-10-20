@@ -3,25 +3,34 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <meta name="theme-color" content="#9a4521" />
+    <meta name="theme-color" content="#fdfcfc" />
     <meta name="description" content="Tvůj žebříček podniků a otevřené aktivity s novými lidmi: kafe, oběd, pivo, procházka, sport. Praha." />
     <link rel="icon" type="image/svg+xml" href="/app/favicon.svg" />
     <link rel="apple-touch-icon" href="/app/apple-touch-icon.png" />
     <title>Meetka</title>
     <script>
+      // The theme before the first paint, so a dark choice never flashes white (lib/theme.ts).
+      ;(function () {
+        try {
+          var t = localStorage.getItem('meetka-theme')
+          var dark = t === 'dark' || (t !== 'light' && matchMedia('(prefers-color-scheme: dark)').matches)
+          document.documentElement.dataset.theme = dark ? 'dark' : 'light'
+        } catch (e) {}
+      })()
       // meetka.eu/404.html sends deep links here as ?p=/diary (GitHub Pages has no SPA fallback).
       ;(function () {
         var p = new URLSearchParams(location.search).get('p')
         if (p && p.charAt(0) === '/') history.replaceState(null, '', '/app' + p)
       })()
     </script>
-    <script type="module" crossorigin src="/app/assets/index-BHgsEq_Z.js"></script>
-    <link rel="modulepreload" crossorigin href="/app/assets/ui-CvhdS4ri.js">
-    <link rel="modulepreload" crossorigin href="/app/assets/actions-Dlonph0l.js">
-    <link rel="modulepreload" crossorigin href="/app/assets/lib-BSfFAvxo.js">
-    <link rel="modulepreload" crossorigin href="/app/assets/plus-BhI9uOv1.js">
-    <link rel="modulepreload" crossorigin href="/app/assets/Diary-Dgv3l-AS.js">
-    <link rel="stylesheet" crossorigin href="/app/assets/index-LF7JBH84.css">
+    <script type="module" crossorigin src="/app/assets/index-Dcjk6Pes.js"></script>
+    <link rel="modulepreload" crossorigin href="/app/assets/ui-BldtQ7fv.js">
+    <link rel="modulepreload" crossorigin href="/app/assets/theme-BG-AhpKC.js">
+    <link rel="modulepreload" crossorigin href="/app/assets/actions-BG_wJLVC.js">
+    <link rel="modulepreload" crossorigin href="/app/assets/lib-BkG2tvPF.js">
+    <link rel="modulepreload" crossorigin href="/app/assets/plus-jsC5Mh5M.js">
+    <link rel="modulepreload" crossorigin href="/app/assets/Diary-DfIj2bJL.js">
+    <link rel="stylesheet" crossorigin href="/app/assets/index-DfJT55Te.css">
   <link rel="manifest" href="/app/manifest.webmanifest"><script id="vite-plugin-pwa:register-sw" src="/app/registerSW.js"></script></head>
   <body>
     <div id="root"></div>

@@ -87,7 +87,7 @@
     var match = location.pathname.match(/^\/t\/([A-Za-z0-9_-]+)\/?$/);
     if (match) {
       document.getElementById("open").href = "meetka://table/" + match[1] + location.search;
-      document.getElementById("web").href = "/app/a/" + match[1];
+      document.getElementById("web").href = "/app/a/" + match[1] + location.search;
       document.getElementById("invite").hidden = false;
     } else {
       document.getElementById("missing").hidden = false;

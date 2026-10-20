@@ -1,0 +1,1 @@
+var e=`meetka-next`,t=e=>e&&e.startsWith(`/`)&&!e.startsWith(`//`)?e:void 0;function n(t){try{t?sessionStorage.setItem(e,t):sessionStorage.removeItem(e)}catch{}}function r(){try{let n=sessionStorage.getItem(e);return sessionStorage.removeItem(e),t(n)}catch{return}}export{n,r,t};

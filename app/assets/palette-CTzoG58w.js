@@ -1,0 +1,1 @@
+export{r as refreshPalette}from"./palette-DpO9YQVD.js";

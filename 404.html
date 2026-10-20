@@ -5,9 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Meetka</title>
   <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#121010" media="(prefers-color-scheme: dark)">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/style.css">
   <script>
     // Serves https://meetka.eu/t/<id>: with the app installed, Android opens the app directly
@@ -22,7 +25,8 @@
         noApp: "Na iPhonu a bez aplikace funguje Meetka v prohlížeči. Android appka bude brzy na Google Play.",
         home: "Co je Meetka?",
         notFoundTitle: "Tahle stránka tu není",
-        notFoundLead: "Odkaz je možná neúplný."
+        notFoundLead: "Odkaz je možná neúplný.",
+        themeLabel: "Přepnout světlý / tmavý vzhled"
       },
       en: {
         title: "Activity invitation · Meetka",
@@ -33,21 +37,26 @@
         noApp: "On iPhone or without the app, Meetka works in the browser. The Android app is coming to Google Play soon.",
         home: "What is Meetka?",
         notFoundTitle: "This page is not here",
-        notFoundLead: "The link may be incomplete."
+        notFoundLead: "The link may be incomplete.",
+        themeLabel: "Switch light / dark appearance"
       }
     };
   </script>
-  <script src="/i18n.js"></script>
+  <script src="/site.js"></script>
 </head>
 <body>
 <header>
   <div class="wrap">
-    <a class="logo" href="/"><img src="/favicon.svg" alt="">Meetka</a>
+    <a class="brand" href="/"><img src="/favicon.svg" alt="">Meetka</a>
     <span class="spacer"></span>
-    <div class="lang" role="group" aria-label="Jazyk / Language">
+    <div class="seg" role="group" aria-label="Jazyk / Language">
       <button data-lang="cs" onclick="meetkaLang('cs')">CZ</button>
       <button data-lang="en" onclick="meetkaLang('en')">EN</button>
     </div>
+    <button class="theme" data-theme-toggle aria-pressed="false" onclick="meetkaTheme()" data-i18n-label="themeLabel" aria-label="Přepnout světlý / tmavý vzhled">
+      <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg>
+      <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg>
+    </button>
   </div>
 </header>
 
@@ -55,15 +64,15 @@
   <section id="invite" hidden>
     <h1 data-i18n="inviteTitle">Pozvánka na aktivitu</h1>
     <p class="lead" data-i18n="inviteLead"></p>
-    <p class="actions"><a id="web" class="button" href="/app/" data-i18n="openWeb">Otevřít v prohlížeči</a>
-      <a id="open" class="button secondary" href="#" data-i18n="open">Otevřít v aplikaci Android</a></p>
+    <div class="actions"><a id="web" class="btn" href="/app/" data-i18n="openWeb">Otevřít v prohlížeči</a>
+      <a id="open" class="btn outline" href="#" data-i18n="open">Otevřít v aplikaci Android</a></div>
     <p class="note" data-i18n="noApp"></p>
-    <p><a class="button secondary" href="/" data-i18n="home">Co je Meetka?</a></p>
+    <p class="back"><a href="/" data-i18n="home">Co je Meetka?</a></p>
   </section>
   <section id="missing" hidden>
     <h1 data-i18n="notFoundTitle">Tahle stránka tu není</h1>
     <p class="lead" data-i18n="notFoundLead"></p>
-    <p><a class="button" href="/" data-i18n="home">Co je Meetka?</a></p>
+    <div class="actions"><a class="btn" href="/" data-i18n="home">Co je Meetka?</a></div>
   </section>
 </main>
 

@@ -53,6 +53,8 @@
       b.setAttribute("aria-pressed", String(b.getAttribute("data-lang") === lang));
     });
     if (texts.title) document.title = texts.title;
+    // Pages with their own texts (the invitation) listen for the switch.
+    document.dispatchEvent(new CustomEvent("meetka:lang", { detail: lang }));
   }
 
   window.meetkaLang = function (lang) {

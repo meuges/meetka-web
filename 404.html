@@ -5,24 +5,37 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Meetka</title>
   <meta name="robots" content="noindex">
+  <meta name="description" content="Pozvánka na aktivitu v Meetce. Kafe, oběd, pivo, procházka nebo sport s novými lidmi, naživo a na veřejném místě.">
   <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#121010" media="(prefers-color-scheme: dark)">
+  <!-- Link previews (WhatsApp, Messenger…) of https://meetka.eu/t/<id>. GitHub Pages answers this page with
+       status 404, which some previewers ignore; one generated page per activity would be needed for that. -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Meetka">
+  <meta property="og:title" content="Pozvánka na aktivitu v Meetce">
+  <meta property="og:description" content="Kafe, oběd, pivo, procházka nebo sport s novými lidmi. Otevři pozvánku a přidej se.">
+  <meta property="og:image" content="https://meetka.eu/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Meetka. Kafe, oběd nebo tenis s novými lidmi.">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/style.css">
   <script>
-    // Serves https://meetka.eu/t/<id>: with the app installed, Android opens the app directly
-    // (App Links); otherwise this page offers to open it or to get it. Anything else is a 404.
+    // Serves https://meetka.eu/t/<id>: with the Android app installed, Android opens it directly (App Links);
+    // otherwise this page shows what the invitation is and opens it in the web app. Anything else is a 404.
     window.MEETKA_TEXTS = {
       cs: {
         title: "Pozvánka na aktivitu · Meetka",
         inviteTitle: "Pozvánka na aktivitu",
-        inviteLead: "Někdo tě zve na aktivitu na Meetce. Otevři ji v aplikaci: uvidíš, kde a kdy se sejdete a kolik vás bude.",
+        inviteLead: "Někdo tě zve na aktivitu v Meetce. Po otevření uvidíš, kde a kdy se sejdete a kolik vás bude.",
+        openWeb: "Otevřít pozvánku",
         open: "Otevřít v aplikaci Android",
-        openWeb: "Otevřít v prohlížeči",
-        noApp: "Na iPhonu a bez aplikace funguje Meetka v prohlížeči. Android appka bude brzy na Google Play.",
+        noApp: "Meetka funguje v prohlížeči na iPhonu, Androidu i počítači. Android appka bude brzy na Google Play.",
+        cancelled: "Tahle aktivita je zrušená.",
         home: "Co je Meetka?",
         notFoundTitle: "Tahle stránka tu není",
         notFoundLead: "Odkaz je možná neúplný.",
@@ -31,14 +44,30 @@
       en: {
         title: "Activity invitation · Meetka",
         inviteTitle: "You are invited",
-        inviteLead: "Someone invites you to an activity on Meetka. Open it in the app to see where and when you meet and how many are going.",
+        inviteLead: "Someone invites you to an activity on Meetka. Open it to see where and when you meet and how many are going.",
+        openWeb: "Open the invitation",
         open: "Open in the Android app",
-        openWeb: "Open in the browser",
-        noApp: "On iPhone or without the app, Meetka works in the browser. The Android app is coming to Google Play soon.",
+        noApp: "Meetka works in the browser on iPhone, Android and computers. The Android app is coming to Google Play soon.",
+        cancelled: "This activity is cancelled.",
         home: "What is Meetka?",
         notFoundTitle: "This page is not here",
         notFoundLead: "The link may be incomplete.",
         themeLabel: "Switch light and dark appearance"
+      }
+    };
+    // The activity in one line, from the public preview (what, when, where, seats; never who).
+    window.MEETKA_INVITE = {
+      cs: {
+        activity: { COFFEE: "Kafe", BREAKFAST: "Snídaně", BRUNCH: "Brunch", LUNCH: "Oběd", DINNER: "Večeře", DRINKS: "Pivo a drink", SPORT: "Sport", WALK: "Procházka", TOUR: "Provedení městem", OTHER: "Aktivita" },
+        weekdayOn: ["v neděli", "v pondělí", "v úterý", "ve středu", "ve čtvrtek", "v pátek", "v sobotu"],
+        line: "{activity} {day} {date} v {time}, {place}, {taken} z {capacity}",
+        locale: "cs-CZ"
+      },
+      en: {
+        activity: { COFFEE: "Coffee", BREAKFAST: "Breakfast", BRUNCH: "Brunch", LUNCH: "Lunch", DINNER: "Dinner", DRINKS: "Drinks", SPORT: "Sport", WALK: "A walk", TOUR: "A city tour", OTHER: "An activity" },
+        weekdayOn: ["on Sunday", "on Monday", "on Tuesday", "on Wednesday", "on Thursday", "on Friday", "on Saturday"],
+        line: "{activity} {day} {date} at {time}, {place}, {taken} of {capacity}",
+        locale: "en-GB"
       }
     };
   </script>
@@ -63,9 +92,12 @@
 <main class="page">
   <section id="invite" hidden>
     <h1 data-i18n="inviteTitle">Pozvánka na aktivitu</h1>
+    <p id="what" class="invite-what" hidden></p>
     <p class="lead" data-i18n="inviteLead"></p>
-    <div class="actions"><a id="web" class="btn" href="/app/" data-i18n="openWeb">Otevřít v prohlížeči</a>
-      <a id="open" class="btn outline" href="#" data-i18n="open">Otevřít v aplikaci Android</a></div>
+    <div class="actions">
+      <a id="web" class="btn" href="/app/" data-i18n="openWeb">Otevřít pozvánku</a>
+      <a id="open" class="btn outline" href="#" data-i18n="open" hidden>Otevřít v aplikaci Android</a>
+    </div>
     <p class="note" data-i18n="noApp"></p>
     <p class="back"><a href="/" data-i18n="home">Co je Meetka?</a></p>
   </section>
@@ -85,13 +117,56 @@
       return;
     }
     var match = location.pathname.match(/^\/t\/([A-Za-z0-9_-]+)\/?$/);
-    if (match) {
-      document.getElementById("open").href = "meetka://table/" + match[1] + location.search;
-      document.getElementById("web").href = "/app/a/" + match[1] + location.search;
-      document.getElementById("invite").hidden = false;
-    } else {
+    if (!match) {
       document.getElementById("missing").hidden = false;
+      return;
     }
+    var id = match[1];
+    document.getElementById("web").href = "/app/a/" + id + location.search;
+    document.getElementById("invite").hidden = false;
+    // The Android app only on Android; everywhere the web app is the way in.
+    if (/Android/i.test(navigator.userAgent)) {
+      var open = document.getElementById("open");
+      open.href = "meetka://table/" + id + location.search;
+      open.hidden = false;
+    }
+
+    // What the invitation is: the public preview (the anon key is public, the server shows no people).
+    var SUPABASE = "https://crqwqdvzfxkvyowwmiqa.supabase.co";
+    var ANON = "sb_publishable_pcAAxIQACRDzKzCLDFCEIQ_zrP1nyca";
+    var token = new URLSearchParams(location.search).get("t");
+    var preview;
+    function lang() { return document.documentElement.lang === "en" ? "en" : "cs"; }
+    function render() {
+      var el = document.getElementById("what");
+      if (!preview) return;
+      var texts = window.MEETKA_INVITE[lang()];
+      if (preview.cancelled) {
+        el.textContent = window.MEETKA_TEXTS[lang()].cancelled;
+      } else {
+        var at = new Date(preview.starts_at);
+        var zone = { timeZone: "Europe/Prague" };
+        var weekday = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].indexOf(new Intl.DateTimeFormat("en-US", Object.assign({ weekday: "short" }, zone)).format(at));
+        var date = new Intl.DateTimeFormat(texts.locale, Object.assign({ day: "numeric", month: lang() === "cs" ? "numeric" : "long" }, zone)).format(at);
+        var time = new Intl.DateTimeFormat(texts.locale, Object.assign({ hour: lang() === "cs" ? "numeric" : "2-digit", minute: "2-digit", hourCycle: "h23" }, zone)).format(at);
+        var values = { activity: texts.activity[preview.activity] || texts.activity.OTHER, day: texts.weekdayOn[weekday], date: date, time: time, place: preview.place_name, taken: preview.taken, capacity: preview.capacity };
+        el.textContent = texts.line.replace(/\{(\w+)\}/g, function (_, k) { return values[k]; });
+      }
+      el.hidden = false;
+    }
+    document.addEventListener("meetka:lang", render);
+    if (!/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(id) || !window.fetch) return;
+    fetch(SUPABASE + "/rest/v1/rpc/activity_preview", {
+      method: "POST",
+      headers: { "content-type": "application/json", apikey: ANON },
+      body: JSON.stringify({ p_table: id, p_token: token })
+    })
+      .then(function (r) { return r.ok ? r.json() : []; })
+      .then(function (rows) {
+        preview = rows && rows[0];
+        render();
+      })
+      .catch(function () { /* offline or blocked: the general text stays */ });
   })();
 </script>
 </body>

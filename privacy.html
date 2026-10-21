@@ -42,16 +42,19 @@
 <tr><td>Kontakt pro známé ze setkání, dobrovolný. Instagram, WhatsApp, Telegram, Signal, e-mail nebo telefon</td><td data-label="Kde je">telefon, server</td><td data-label="Proč">předání kontaktu po setkání</td><td data-label="Kdo ho vidí">jen ten, s kým jste si po společném setkání oba zvolili „Zůstat v kontaktu“. Jednostranné přání nikdo nevidí</td></tr>
 <tr><td>Datum narození</td><td data-label="Kde je">telefon, server</td><td data-label="Proč">ověření 18 let, věkové rozpětí</td><td data-label="Kdo ho vidí">nikdo. Ostatní vidí jen rozpětí, třeba 30 až 34</td></tr>
 <tr><td>Domovská čtvrť</td><td data-label="Kde je">telefon, server</td><td data-label="Proč">výchozí střed pro vzdálenosti</td><td data-label="Kdo ho vidí">nikdo</td></tr>
+<tr><td>Poloha zařízení, přibližná nebo přesná, jen když u aktivit v okolí zvolíš „Kde právě jsem“</td><td data-label="Kde je">jen v paměti telefonu nebo prohlížeče, dokud appku nezavřeš. S účtem ji server dostane jako součást hledání aktivit v okolí a neuloží ji</td><td data-label="Proč">jedno hledání aktivit v okolí a vzdálenosti k nim</td><td data-label="Kdo ho vidí">nikdo</td></tr>
 <tr><td>„Jsem žena“</td><td data-label="Kde je">telefon, server</td><td data-label="Proč">přístup k aktivitám jen pro ženy</td><td data-label="Kdo ho vidí">nikdo</td></tr>
 <tr><td>Aktivity, které zakládáš nebo ke kterým se přidáš, a počet setkání</td><td data-label="Kde je">telefon, server</td><td data-label="Proč">fungování aktivit, důvěryhodnost</td><td data-label="Kdo ho vidí">ostatní vidí místo, čas a počet lidí. Kdo přijde, podle volby hostitele, anonymní nebo otevřená aktivita. Po setkání vidí účastníci v deníku křestní jména těch, kdo přišli</td></tr>
 <tr><td>Nahlášení a blokace</td><td data-label="Kde je">telefon, server</td><td data-label="Proč">bezpečnost a moderace podle nařízení o digitálních službách</td><td data-label="Kdo ho vidí">jen moderátor. Nahlášený se nedozví, kdo ho nahlásil. Blokovaný se o blokaci nedozví</td></tr>
 </table></div>
-<p>Neukládáme příjmení, adresu, přesnou polohu, zdravotní údaje jako alergie a intolerance ani náboženské stravovací preference.</p>
-<h2>3. Mapa a katalog míst</h2>
+<p>Neukládáme příjmení, adresu, polohu zařízení, zdravotní údaje jako alergie a intolerance ani náboženské stravovací preference.</p>
+<p>Polohu zařízení appka zjistí jen tehdy, když u aktivit v okolí zvolíš „Kde právě jsem“. Android i prohlížeč se tě předtím zeptají na svolení a můžeš ho kdykoli odebrat v nastavení. Zapamatujeme si jen tvoji volbu, nikdy samotnou polohu. Když svolení nedáš, vzdálenosti se počítají od tvé čtvrti nebo od centra města.</p>
+<h2>3. Mapa, katalog míst a počasí</h2>
 <ul>
 <li>Katalog míst je součástí aplikace. Data pocházejí od přispěvatelů OpenStreetMap pod licencí ODbL.</li>
 <li>Mapa stahuje mapové podklady ze služby OpenFreeMap. Jejímu serveru se při tom předá IP adresa zařízení a zobrazená oblast mapy, nic dalšího.</li>
 <li>„Otevřít v mapách“ předá název a souřadnice místa mapové aplikaci, kterou si zvolíš.</li>
+<li>U aktivity, která začíná do 14 dnů, ukážeme počasí ze služby Open-Meteo se sídlem ve Švýcarsku. Její server dostane souřadnice místa setkání, nikdy tvoji polohu, a jako každá webová stránka IP adresu zařízení.</li>
 </ul>
 <h2>4. Oznámení</h2>
 <p>Meetka ti posílá e-maily o tvých aktivitách. Hostitel dostane e-mail o nové žádosti o místo, host o schválení a o zrušení aktivity. Tři hodiny před začátkem přijde připomínka. Posíláme je přes službu Resend se servery v EU a vypnout je jde v profilu u účtu.</p>
@@ -66,6 +69,7 @@
 <li>Supabase, servery v EU v Irsku. Účet, profil, deník a aktivity.</li>
 <li>Resend, servery v EU v Irsku. Odesílání přihlašovacích kódů a e-mailů o tvých aktivitách.</li>
 <li>Sentry, servery v EU v Německu. Když webová aplikace nebo aplikace pro Android spadne nebo nahlásí chybu, pošle se popis chyby, adresa obrazovky bez parametrů, prohlížeč nebo model telefonu a verze aplikace. Bez jména, e-mailu a IP adresy. Záznamy se mažou nejpozději po 90 dnech.</li>
+<li>Open-Meteo, Švýcarsko. Předpověď počasí pro místo setkání, viz bod 3.</li>
 <li>Přihlášení přes Google je na tvé volbě. Google se pak dozví, že tvůj účet slouží k přihlášení do Meetky.</li>
 <li>E-mail slouží jen k přihlášení, k e-mailům o tvých aktivitách a k ochraně před zneužitím. Nikomu se neukazuje.</li>
 </ul>

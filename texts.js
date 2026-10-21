@@ -47,6 +47,7 @@ window.MEETKA_TEXTS = {
     ctaSub: "Otevři appku, vyber si aktivitu v okolí, nebo založ vlastní.",
     privacy: "Ochrana soukromí",
     terms: "Podmínky používání",
+    childSafety: "Bezpečnost dětí",
     footerLine: "Meetka · Praha"
   },
   en: {
@@ -96,6 +97,7 @@ window.MEETKA_TEXTS = {
     ctaSub: "Open the app, pick an activity nearby, or start your own.",
     privacy: "Privacy",
     terms: "Terms of use",
+    childSafety: "Child safety",
     footerLine: "Meetka · Prague"
   }
 };
